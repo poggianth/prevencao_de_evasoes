@@ -1,11 +1,12 @@
-import express from 'express';
-import csv from 'csvtojson'
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { GoogleAICacheManager } from '@google/generative-ai/server';
+import cors from 'cors';
+import express from 'express';
+import csv from 'csvtojson'
 import dotenv from 'dotenv';
 
 const app = express();
-app.use(express.json());
+app.use(express.json(), cors());
 dotenv.config();
 
 const studentData = await csv().fromFile('./data/csv_motivos.csv');
