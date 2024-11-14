@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 dotenv.config();
 
-const studentData = await csv().fromFile(process.env.csvFilePath);
+const studentData = await csv().fromFile('./data/csv_motivos.csv');
 const cacheManager = new GoogleAICacheManager(process.env.API_KEY);
 const model = "models/gemini-1.5-flash-001";
 
