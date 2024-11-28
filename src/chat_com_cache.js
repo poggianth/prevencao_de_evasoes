@@ -43,7 +43,7 @@ app.get("/", async (req, res) => {
     return res.status(200).json({historico: await chat.getHistory()});
 });
 
-app.get("/estrategias", async (req, res) => {
+app.post("/estrategias", async (req, res) => {
     const { motivo } = req.body;
 
     if(!motivo){
@@ -62,7 +62,7 @@ app.get("/estrategias", async (req, res) => {
     }
 });
 
-app.get("/aprofundar_estrategia", async(req, res) => {
+app.post("/aprofundar_estrategia", async(req, res) => {
     const { estrategia } = req.body;
 
     if(!estrategia){
